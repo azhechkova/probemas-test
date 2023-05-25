@@ -1,5 +1,7 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import classNames from 'classnames';
+
+import useClickOutside from '../../../../hooks/useClickOutside';
 
 import { ReactComponent as ArrowSvg } from '../../../../assets/images/arrow.svg';
 
@@ -7,6 +9,7 @@ import styles from './index.module.scss';
 
 const Select = ({ options, onSelect, value }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const selectRef = useRef(null);
 
   const selectClassnames = classNames(styles.select, {
     [styles.selectOpen]: isOpen,
@@ -15,12 +18,18 @@ const Select = ({ options, onSelect, value }) => {
   const selectedOption =
     options.find(option => option.value === value) || options[0];
 
+  const onClose = () => setIsOpen(false);
+  const onChange = value => {
+    onSelect(value);
+    onClose();
+  };
+  const onToggle = () => setIsOpen(prev => !prev);
+
+  useClickOutside(selectRef, () => setIsOpen(false));
+
   return (
-    <div className={selectClassnames}>
-      <button
-        className={styles.trigger}
-        onClick={() => setIsOpen(prev => !prev)}
-      >
+    <div className={selectClassnames} ref={selectRef}>
+      <button className={styles.trigger} onClick={onToggle}>
         <selectedOption.label />
         <ArrowSvg className={styles.arrow} />
       </button>
@@ -31,7 +40,7 @@ const Select = ({ options, onSelect, value }) => {
               return (
                 <li key={option.value}>
                   <button
-                    onClick={() => onSelect(option.value)}
+                    onClick={() => onChange(option.value)}
                     className={styles.optionButton}
                   >
                     <option.label isSelected={value === option.value} />
