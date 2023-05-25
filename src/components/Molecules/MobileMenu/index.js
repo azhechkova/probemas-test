@@ -28,20 +28,22 @@ const MobileMenu = ({ onClose }) => {
           <CloseSvg />
         </button>
       </div>
-      <NavMenu position="vertical" className={styles.navMenu} />
-      <div className={styles.selectWrap}>
-        <Select
-          options={options}
-          value={selectedCurrency}
-          classes={{ trigger: styles.selectTrigger }}
-          onSelect={onSelect}
-          isStatic
-        />
-      </div>
+      <div className={styles.content}>
+        <NavMenu position="vertical" className={styles.navMenu} />
+        <div className={styles.selectWrap}>
+          <Select
+            options={options}
+            value={selectedCurrency}
+            classes={{ trigger: styles.selectTrigger }}
+            onSelect={onSelect}
+            isStatic
+          />
+        </div>
 
-      <div className={styles.buttonWrap}>
-        <Button variant="outlined">Sign Up</Button>
-        <Button>Log In</Button>
+        <div className={styles.buttonWrap}>
+          <Button variant="outlined">Sign Up</Button>
+          <Button>Log In</Button>
+        </div>
       </div>
     </div>
   );
