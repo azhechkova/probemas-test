@@ -1,15 +1,15 @@
 import { useDispatch, useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
+import formatCurrencyOptions from '../../../utils/formatCurrencyOptions';
+import { getCurrency } from '../../../store/utils';
+import { setCurrency } from '../../../store/reducers/app';
 
-import formatCurrencyOptions from '../../../../utils/formatCurrencyOptions';
-import { getCurrency } from '../../../../store/utils';
-import { setCurrency } from '../../../../store/reducers/app';
-
-import { currency } from '../../../../constants';
+import { currency } from '../../../constants';
 
 import NavMenu from '../NavMenu';
 import Select from '../../Atoms/Select';
 
-import { ReactComponent as CloseSvg } from '../../../../assets/images/close.svg';
+import { ReactComponent as CloseSvg } from '../../../assets/images/close.svg';
 
 import styles from './index.module.scss';
 import Button from '../../Atoms/Button';
@@ -24,7 +24,7 @@ const MobileMenu = ({ onClose }) => {
   return (
     <div className={styles.mobileMenu}>
       <div className={styles.closeBtnWrap}>
-        <button className={styles.closeBtn} onClick={onClose}>
+        <button className={styles.closeBtn} onClick={onClose} type="button">
           <CloseSvg />
         </button>
       </div>
@@ -45,6 +45,10 @@ const MobileMenu = ({ onClose }) => {
       </div>
     </div>
   );
+};
+
+MobileMenu.propTypes = {
+  onClose: PropTypes.func.isRequired,
 };
 
 export default MobileMenu;

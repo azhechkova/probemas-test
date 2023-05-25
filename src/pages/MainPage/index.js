@@ -1,10 +1,17 @@
-import Header from '../../components/UI/Molecules/Header';
+import { USD_PRICE } from '../../constants';
+import Calculator from '../../components/Molecules/Calculator';
+import MainLayout from '../../layouts/MainLayout';
+
+import styles from './index.module.scss';
 
 const MainPage = () => {
   return (
-    <>
-      <Header />
-    </>
+    <MainLayout>
+      <p className={styles.introText}>
+        The price in USD for 1 item is: ${USD_PRICE}
+      </p>
+      <Calculator />
+    </MainLayout>
   );
 };
 
