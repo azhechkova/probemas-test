@@ -6,13 +6,19 @@
   left: 0;
   background-color: var(--dark-blue);
   padding: 24px 0;
-  overflow: auto;
+  height: 100%;
+  z-index: 10;
 }
 
 .closeBtn {
   background: transparent;
   padding: 0;
   cursor: pointer;
+}
+
+.content {
+  overflow: auto;
+  height: 100%;
 }
 
 .closeBtnWrap {
