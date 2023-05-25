@@ -2,27 +2,34 @@
   color: var(--white);
   font-weight: 500;
   font-size: 1em;
+  position: relative;
+
   @media (min-width: 910px) {
     font-size: 0.875em;
     &:hover {
       color: var(--yellow-primary);
     }
   }
-}
 
-.activeLink {
-  color: var(--yellow-primary);
-  position: relative;
-}
-
-.activeDash {
   &::after {
     content: '';
     display: block;
     position: absolute;
     bottom: -5px;
-    background: var(--yellow-primary);
     height: 3px;
+    width: 0;
+    transition: width 0.5s ease;
+    border-radius: 100px;
+    background: var(--yellow-primary);
+  }
+}
+
+.activeLink {
+  color: var(--yellow-primary);
+}
+
+.activeDash {
+  &::after {
     width: 24px;
   }
 }
