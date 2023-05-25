@@ -37,7 +37,11 @@ const Header = () => {
     <header className={styles.header}>
       <div className={styles.container}>
         {width < mobileBreakpoint && (
-          <button className={styles.mobileButton} onClick={onOpen}>
+          <button
+            className={styles.mobileButton}
+            onClick={onOpen}
+            type="button"
+          >
             <MenuSvg />
           </button>
         )}

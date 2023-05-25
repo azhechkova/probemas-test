@@ -3,14 +3,14 @@ import classNames from 'classnames';
 
 import styles from './index.module.scss';
 
-const Button = ({ children, variant, ...props }) => {
+const Button = ({ children, variant, type, ...props }) => {
   const buttonClasses = classNames(styles.button, {
     [styles.outlinedButton]: variant === 'outlined',
     [styles.filledButton]: variant === 'filled',
   });
 
   return (
-    <button className={buttonClasses} {...props}>
+    <button className={buttonClasses} type="button" {...props}>
       {children}
     </button>
   );
@@ -18,11 +18,13 @@ const Button = ({ children, variant, ...props }) => {
 
 Button.defaultProps = {
   variant: 'filled',
+  type: 'button',
 };
 
 Button.propTypes = {
-  children: PropTypes.node,
+  children: PropTypes.node.isRequired,
   variant: PropTypes.oneOf(['outlined', 'filled']),
+  type: PropTypes.string,
 };
 
 export default Button;

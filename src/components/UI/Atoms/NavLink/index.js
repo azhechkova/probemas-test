@@ -1,9 +1,10 @@
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { NavLink as Link } from 'react-router-dom';
 
 import styles from './index.module.scss';
 
-const NavLink = ({ children, to, className, showActive = true }) => {
+const NavLink = ({ children, to, className, showActive }) => {
   const getClassname = ({ isActive }) =>
     classNames(styles.link, {
       [styles.activeLink]: isActive,
@@ -18,4 +19,15 @@ const NavLink = ({ children, to, className, showActive = true }) => {
   );
 };
 
+NavLink.defaultProps = {
+  className: '',
+  showActive: true,
+};
+
+NavLink.propTypes = {
+  children: PropTypes.node.isRequired,
+  to: PropTypes.string.isRequired,
+  className: PropTypes.string,
+  showActive: PropTypes.bool,
+};
 export default NavLink;

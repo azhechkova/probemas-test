@@ -1,9 +1,11 @@
+import classNames from 'classnames';
+import PropTypes from 'prop-types';
+
+import { navRoutes } from '../../../../router/routes';
+
 import NavLink from '../../Atoms/NavLink';
 
-import { navRoutes } from '../../../../constants';
-
 import styles from './index.module.scss';
-import classNames from 'classnames';
 
 const NavMenu = ({ position, className }) => {
   const listClassnames = classNames(styles.navList, {
@@ -26,6 +28,16 @@ const NavMenu = ({ position, className }) => {
       ))}
     </ul>
   );
+};
+
+NavMenu.defaultProps = {
+  position: 'horisontal',
+  className: '',
+};
+
+NavMenu.propTypes = {
+  position: PropTypes.oneOf(['vertical', 'horisontal']),
+  className: PropTypes.string,
 };
 
 export default NavMenu;

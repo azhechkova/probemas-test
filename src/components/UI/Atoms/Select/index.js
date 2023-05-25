@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useRef, useState } from 'react';
 import classNames from 'classnames';
 
@@ -24,10 +25,10 @@ const Select = ({ options, onSelect, value, isStatic, classes }) => {
 
   const onClose = () => setIsOpen(false);
 
-  const onChange = value => {
-    onSelect(value);
+  const onChange = newValue => {
+    onSelect(newValue);
 
-    !isStatic && onClose();
+    if (!isStatic) onClose();
   };
 
   const onToggle = () => setIsOpen(prev => !prev);
@@ -36,25 +37,24 @@ const Select = ({ options, onSelect, value, isStatic, classes }) => {
 
   return (
     <div className={selectClassnames} ref={selectRef}>
-      <button className={valueClassnames} onClick={onToggle}>
+      <button className={valueClassnames} onClick={onToggle} type="button">
         <selectedOption.label />
         <ArrowSvg className={styles.arrow} />
       </button>
       {isOpen && (
         <div className={styles.options}>
           <ul>
-            {options.map(option => {
-              return (
-                <li key={option.value}>
-                  <button
-                    onClick={() => onChange(option.value)}
-                    className={styles.optionButton}
-                  >
-                    <option.label isSelected={value === option.value} />
-                  </button>
-                </li>
-              );
-            })}
+            {options.map(option => (
+              <li key={option.value}>
+                <button
+                  type="button"
+                  onClick={() => onChange(option.value)}
+                  className={styles.optionButton}
+                >
+                  <option.label isSelected={value === option.value} />
+                </button>
+              </li>
+            ))}
           </ul>
         </div>
       )}
@@ -64,6 +64,15 @@ const Select = ({ options, onSelect, value, isStatic, classes }) => {
 
 Select.defaultProps = {
   classes: {},
+  isStatic: false,
+};
+
+Select.propTypes = {
+  options: PropTypes.array.isRequired,
+  onSelect: PropTypes.func.isRequired,
+  value: PropTypes.string.isRequired,
+  isStatic: PropTypes.bool,
+  classes: PropTypes.object,
 };
 
 export default Select;
