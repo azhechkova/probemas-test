@@ -1,11 +1,11 @@
 import { useSelector } from 'react-redux';
 import { useMemo, useState } from 'react';
 
-import { getCurrency } from '../../../store/utils';
+import { getCurrency } from '../../../store/selectors';
 
 import Input from '../../Atoms/Input';
 import styles from './index.module.scss';
-import { USD_PRICE, currency } from '../../../constants';
+import { USD_PRICE, CURRENCY } from '../../../constants';
 import getItemPrice from '../../../utils/getItemPrice';
 
 const Calculator = () => {
@@ -13,7 +13,7 @@ const Calculator = () => {
   const selectedCurrency = useSelector(getCurrency);
 
   const currencyObj = useMemo(
-    () => currency.find(({ value }) => value === selectedCurrency),
+    () => CURRENCY.find(({ value }) => value === selectedCurrency),
     [selectedCurrency],
   );
 

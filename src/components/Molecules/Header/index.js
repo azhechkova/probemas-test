@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { currency } from '../../../constants';
-import { getCurrency } from '../../../store/utils';
+import { CURRENCY } from '../../../constants';
+import { getCurrency } from '../../../store/selectors';
 import { setCurrency } from '../../../store/reducers/app';
 import useWindowSize from '../../../hooks/useWindowSize';
 import formatCurrencyOptions from '../../../utils/formatCurrencyOptions';
@@ -24,14 +24,14 @@ const mobileBreakpoint = 910;
 const Header = () => {
   const selectedCurrency = useSelector(getCurrency);
   const dispatch = useDispatch();
-  const onSelect = value => dispatch(setCurrency(value));
   const { width } = useWindowSize();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const selectOptions = formatCurrencyOptions(currency);
+  const selectOptions = formatCurrencyOptions(CURRENCY);
 
   const onOpen = () => setIsMobileMenuOpen(true);
   const onClose = () => setIsMobileMenuOpen(false);
+  const onSelect = value => dispatch(setCurrency(value));
 
   return (
     <header className={styles.header}>
