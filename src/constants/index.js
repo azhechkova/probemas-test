@@ -15,7 +15,7 @@ export const CURRENCY = [
     value: 'eur',
     label: 'EUR',
     Icon: EurSvg,
-    coef: 1.07,
+    coef: 1.1,
   },
   {
     value: 'gbp',
