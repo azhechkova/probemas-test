@@ -7,7 +7,7 @@ import NavLink from '../../Atoms/NavLink';
 
 import styles from './index.module.scss';
 
-const NavMenu = ({ position, className }) => {
+const NavMenu = ({ position, className, onClick }) => {
   const listClassnames = classNames(styles.navList, {
     [styles.listVertical]: position === 'vertical',
     [className]: className,
@@ -21,6 +21,7 @@ const NavMenu = ({ position, className }) => {
             to={route.path}
             className={styles.navItem}
             showActive={position !== 'vertical'}
+            onClick={onClick}
           >
             {route.label}
           </NavLink>
@@ -33,11 +34,13 @@ const NavMenu = ({ position, className }) => {
 NavMenu.defaultProps = {
   position: 'horisontal',
   className: '',
+  onClick: () => {},
 };
 
 NavMenu.propTypes = {
   position: PropTypes.oneOf(['vertical', 'horisontal']),
   className: PropTypes.string,
+  onClick: PropTypes.func,
 };
 
 export default NavMenu;

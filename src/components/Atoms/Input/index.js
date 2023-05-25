@@ -14,11 +14,12 @@ const Input = ({ value, onChange, type, ...props }) => (
 
 Input.defaultProps = {
   type: 'text',
+  onChange: () => {},
 };
 
 Input.propTypes = {
   value: PropTypes.any.isRequired,
-  onChange: PropTypes.func.isRequired,
+  onChange: PropTypes.func,
   type: PropTypes.string,
 };
 

@@ -1,21 +1,21 @@
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import formatCurrencyOptions from '../../../utils/formatCurrencyOptions';
-import { getCurrency } from '../../../store/utils';
+import { getCurrency } from '../../../store/selectors';
 import { setCurrency } from '../../../store/reducers/app';
 
-import { currency } from '../../../constants';
+import { CURRENCY } from '../../../constants';
 
 import NavMenu from '../NavMenu';
 import Select from '../../Atoms/Select';
+import Button from '../../Atoms/Button';
 
 import { ReactComponent as CloseSvg } from '../../../assets/images/close.svg';
 
 import styles from './index.module.scss';
-import Button from '../../Atoms/Button';
 
 const MobileMenu = ({ onClose }) => {
-  const options = formatCurrencyOptions(currency);
+  const options = formatCurrencyOptions(CURRENCY);
   const selectedCurrency = useSelector(getCurrency);
   const dispatch = useDispatch();
 
@@ -29,7 +29,11 @@ const MobileMenu = ({ onClose }) => {
         </button>
       </div>
       <div className={styles.content}>
-        <NavMenu position="vertical" className={styles.navMenu} />
+        <NavMenu
+          onClick={onClose}
+          position="vertical"
+          className={styles.navMenu}
+        />
         <div className={styles.selectWrap}>
           <Select
             options={options}

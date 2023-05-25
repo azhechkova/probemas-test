@@ -4,7 +4,7 @@ import { NavLink as Link } from 'react-router-dom';
 
 import styles from './index.module.scss';
 
-const NavLink = ({ children, to, className, showActive }) => {
+const NavLink = ({ children, to, className, showActive, ...props }) => {
   const getClassname = ({ isActive }) =>
     classNames(styles.link, {
       [styles.activeLink]: isActive,
@@ -13,7 +13,7 @@ const NavLink = ({ children, to, className, showActive }) => {
     });
 
   return (
-    <Link to={to} className={getClassname}>
+    <Link to={to} className={getClassname} {...props}>
       {children}
     </Link>
   );
