@@ -1,15 +1,21 @@
 .link {
   color: var(--white);
   font-weight: 500;
-  font-size: 0.875em;
-  &:hover {
-    color: var(--yellow-primary);
+  font-size: 1em;
+  @media (min-width: 910px) {
+    font-size: 0.875em;
+    &:hover {
+      color: var(--yellow-primary);
+    }
   }
 }
 
 .activeLink {
   color: var(--yellow-primary);
   position: relative;
+}
+
+.activeDash {
   &::after {
     content: '';
     display: block;

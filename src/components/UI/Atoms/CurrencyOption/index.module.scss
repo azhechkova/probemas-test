@@ -4,16 +4,30 @@
   gap: 10px;
   width: 100%;
   color: var(--white);
+  padding: 0 8px;
+  border-right: 2px solid transparent;
+  @media (max-width: 910px) {
+    padding: 0 14px;
+    border-left: 2px solid transparent;
+  }
 }
 
 .label {
   text-transform: uppercase;
   padding: 5px 0;
+  @media (max-width: 910px) {
+    font-size: 1em;
+    padding: 8px 0;
+  }
 }
 
 .selected {
   background: rgba(44, 62, 103, 0.2);
   border-right: 2px solid var(--yellow-primary);
+  @media (max-width: 910px) {
+    border-right: none;
+    border-left: 2px solid var(--yellow-primary);
+  }
 }
 
 .icon {

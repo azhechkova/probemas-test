@@ -7,29 +7,36 @@ import { ReactComponent as ArrowSvg } from '../../../../assets/images/arrow.svg'
 
 import styles from './index.module.scss';
 
-const Select = ({ options, onSelect, value }) => {
+const Select = ({ options, onSelect, value, isStatic, classes }) => {
   const [isOpen, setIsOpen] = useState(false);
   const selectRef = useRef(null);
 
   const selectClassnames = classNames(styles.select, {
     [styles.selectOpen]: isOpen,
+    [styles.staticSelect]: isStatic,
+  });
+  const valueClassnames = classNames(styles.trigger, {
+    [classes.trigger]: classes.trigger,
   });
 
   const selectedOption =
     options.find(option => option.value === value) || options[0];
 
   const onClose = () => setIsOpen(false);
+
   const onChange = value => {
     onSelect(value);
-    onClose();
+
+    !isStatic && onClose();
   };
+
   const onToggle = () => setIsOpen(prev => !prev);
 
-  useClickOutside(selectRef, () => setIsOpen(false));
+  useClickOutside(selectRef, () => !isStatic && setIsOpen(false));
 
   return (
     <div className={selectClassnames} ref={selectRef}>
-      <button className={styles.trigger} onClick={onToggle}>
+      <button className={valueClassnames} onClick={onToggle}>
         <selectedOption.label />
         <ArrowSvg className={styles.arrow} />
       </button>
@@ -53,6 +60,10 @@ const Select = ({ options, onSelect, value }) => {
       )}
     </div>
   );
+};
+
+Select.defaultProps = {
+  classes: {},
 };
 
 export default Select;
