@@ -1,0 +1,8 @@
+.navList {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+  @media (max-width: 1280px) {
+    gap: 25px;
+  }
+}

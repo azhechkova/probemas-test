@@ -1,0 +1,26 @@
+.button {
+  font-weight: 500;
+  padding: 8px 24px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 0.875em;
+  box-shadow: 1px 2px 5px 0px #00000026;
+
+  @media (max-width: 572px) {
+    padding: 6px 16px;
+  }
+}
+
+.filledButton {
+  color: var(--dark-blue);
+  background: var(--yellow-primary);
+  &:hover {
+    background: var(--yellow-light);
+  }
+}
+
+.outlinedButton {
+  color: var(--white);
+  background: transparent;
+  border: 1px solid var(--white);
+}

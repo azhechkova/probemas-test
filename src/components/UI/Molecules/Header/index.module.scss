@@ -1,0 +1,23 @@
+.header {
+  background: var(--dark-blue);
+}
+
+.container {
+  max-width: 1320px;
+  width: 100%;
+  padding: 20px 10px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navMenu {
+  display: flex;
+  gap: 40px;
+}
+
+.rightBlock {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}

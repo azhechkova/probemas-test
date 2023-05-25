@@ -1,0 +1,22 @@
+.option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  color: var(--white);
+}
+
+.label {
+  text-transform: uppercase;
+  padding: 5px 0;
+}
+
+.selected {
+  background: rgba(44, 62, 103, 0.2);
+  border-right: 2px solid var(--yellow-primary);
+}
+
+.icon {
+  height: 16px;
+  width: 16px;
+}
