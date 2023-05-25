@@ -7,27 +7,34 @@ import { ReactComponent as CadSvg } from '../assets/images/cad.svg';
 export const currency = [
   {
     value: 'usd',
+    label: 'USD',
     icon: UsdSvg,
     coef: 1,
   },
   {
     value: 'eur',
+    label: 'EUR',
     icon: EurSvg,
     coef: 1,
   },
   {
     value: 'gbp',
+    label: 'GBP',
     icon: GbpSvg,
-    coef: 4,
+    coef: 1.4,
   },
   {
     value: 'aud',
+    label: 'AUD',
     icon: AudSvg,
-    coef: 4,
+    coef: 0.65,
   },
   {
     value: 'cad',
+    label: 'CAD',
     icon: CadSvg,
-    coef: 4,
+    coef: 0.74,
   },
 ];
+
+export const USD_PRICE = 10;

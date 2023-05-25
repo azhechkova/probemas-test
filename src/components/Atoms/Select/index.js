@@ -2,9 +2,9 @@ import PropTypes from 'prop-types';
 import { useRef, useState } from 'react';
 import classNames from 'classnames';
 
-import useClickOutside from '../../../../hooks/useClickOutside';
+import useClickOutside from '../../../hooks/useClickOutside';
 
-import { ReactComponent as ArrowSvg } from '../../../../assets/images/arrow.svg';
+import { ReactComponent as ArrowSvg } from '../../../assets/images/arrow.svg';
 
 import styles from './index.module.scss';
 

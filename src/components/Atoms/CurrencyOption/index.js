@@ -10,7 +10,7 @@ const CurrencyOption = ({ currency, isSelected }) => {
   return (
     <div className={optionClassnames}>
       <currency.icon className={styles.icon} />
-      <span className={styles.label}>{currency.value}</span>
+      <span className={styles.label}>{currency.label}</span>
     </div>
   );
 };

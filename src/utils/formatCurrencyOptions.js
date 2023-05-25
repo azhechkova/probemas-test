@@ -1,4 +1,4 @@
-import CurrencyOption from '../components/UI/Atoms/CurrencyOption';
+import CurrencyOption from '../components/Atoms/CurrencyOption';
 
 const formatCurrencyOptions = options =>
   options.map(currency => ({

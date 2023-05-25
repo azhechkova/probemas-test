@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
-import { navRoutes } from '../../../../router/routes';
+import { navRoutes } from '../../../router/routes';
 
 import NavLink from '../../Atoms/NavLink';
 

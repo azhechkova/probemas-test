@@ -35,5 +35,9 @@ module.exports = {
     'import/no-cycle': 'off',
     'no-param-reassign': 'off',
     'react/jsx-props-no-spreading': 'off',
+    'import/no-extraneous-dependencies': 'off',
+    'import/no-unresolved': 'off',
+    'consistent-return': 'off',
+    'import/extensions': 'off',
   },
 };

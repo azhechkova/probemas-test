@@ -1,15 +1,15 @@
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
-import formatCurrencyOptions from '../../../../utils/formatCurrencyOptions';
-import { getCurrency } from '../../../../store/utils';
-import { setCurrency } from '../../../../store/reducers/app';
+import formatCurrencyOptions from '../../../utils/formatCurrencyOptions';
+import { getCurrency } from '../../../store/utils';
+import { setCurrency } from '../../../store/reducers/app';
 
-import { currency } from '../../../../constants';
+import { currency } from '../../../constants';
 
 import NavMenu from '../NavMenu';
 import Select from '../../Atoms/Select';
 
-import { ReactComponent as CloseSvg } from '../../../../assets/images/close.svg';
+import { ReactComponent as CloseSvg } from '../../../assets/images/close.svg';
 
 import styles from './index.module.scss';
 import Button from '../../Atoms/Button';
