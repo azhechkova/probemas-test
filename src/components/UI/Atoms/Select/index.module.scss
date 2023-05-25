@@ -1,0 +1,51 @@
+.select {
+  position: relative;
+}
+
+.trigger {
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--white);
+  &:hover {
+    & * {
+      color: var(--yellow-primary);
+    }
+  }
+}
+
+.arrow {
+  transition: transform 0.5s ease;
+}
+
+.selectOpen {
+  & .arrow {
+    transform: rotate(180deg);
+    transition: transform 0.5s ease;
+  }
+}
+
+.options {
+  position: absolute;
+  padding: 16px 0;
+  background-color: var(--dark-blue);
+  border-radius: 4px;
+  box-shadow: 0px -1px 5px 2px #31424b1a;
+  width: 105px;
+}
+
+.optionButton {
+  background: transparent;
+  width: 100%;
+  padding: 0;
+}
+
+.staticSelect {
+  .options {
+    position: static;
+    width: 100%;
+  }
+}

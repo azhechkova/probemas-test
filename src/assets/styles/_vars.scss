@@ -1,0 +1,16 @@
+:root {
+  // fonts
+  --default-font: 'Poppins', sans-serif;
+  --secondary-font: 'Gilroy', sans-serif;
+
+  // colors
+  --yellow-primary: #e9b109;
+  --yellow-light: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.35),
+      rgba(255, 255, 255, 0.35)
+    ),
+    #e9b109;
+  --white: #fff;
+  --dark-blue: #142241;
+}

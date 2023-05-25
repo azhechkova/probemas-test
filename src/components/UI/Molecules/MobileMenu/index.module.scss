@@ -1,0 +1,53 @@
+.mobileMenu {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: var(--dark-blue);
+  padding: 24px 0;
+  overflow: auto;
+}
+
+.closeBtn {
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+}
+
+.closeBtnWrap {
+  margin-bottom: 20px;
+  padding: 0 16px;
+}
+.navMenu {
+  padding: 0 16px;
+}
+
+.buttonWrap {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 16px;
+  padding: 0 16px;
+}
+
+.selectWrap {
+  padding: 10px 0;
+  position: relative;
+
+  &::after {
+    content: '';
+    display: block;
+    height: 1px;
+    width: calc(100% - 32px);
+    background: rgba(255, 255, 255, 0.2);
+    margin: 10px auto 0;
+  }
+}
+
+.selectTrigger {
+  padding: 0 16px;
+  & > div {
+    padding: 0;
+  }
+}
